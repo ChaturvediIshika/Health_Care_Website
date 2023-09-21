@@ -10,13 +10,13 @@
 <%} else { %>
     <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
       <li class="nav-item">
-        <a href="/cart" class="nav-link"><i class="bi bi-cart"></i> cart</a>
+        <a href="/saved" class="nav-link ">Saved</a>
       </li>
         <li class="nav-item">
-            <a class="nav-link navbar-brand  active" href="/profile/<%=user.id%>"><%=user.username %></a>
+            <a class="nav-link   active" href="/profile/<%=user.id%>"><%=user.username %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link " href="/logout">Logout</a>
         </li>
     </ul>
 <%} %>

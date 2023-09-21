@@ -13,13 +13,8 @@ const schema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'products'
     }],
-    qty:[{type:Number}],
     profile:String,
     isAdmin:Boolean,
-    reward:{
-        type:Number,
-        default:0
-    }
 })
 
 schema.plugin(passportLocalMongoose);

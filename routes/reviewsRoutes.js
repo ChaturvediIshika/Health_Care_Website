@@ -4,7 +4,7 @@ const reviews=require('../models/reviews');
 const products=require('../models/product');
 const { isLoggedIn } = require('../middleware');
 
-router.post('/products/:prdid/review',isLoggedIn,async(req,res)=>{
+router.post('/doctors/:prdid/review',isLoggedIn,async(req,res)=>{
     const {prdid}=req.params;
     const {rating,comment}=req.body;
     const review=await reviews.create({rating,comment,username:req.user.username,creator:req.user.id});
@@ -12,16 +12,16 @@ router.post('/products/:prdid/review',isLoggedIn,async(req,res)=>{
     await product.reviews.splice(0,0,review);
     await product.save();
     req.flash('message','Review added');
-    res.redirect('/products/'+prdid);
+    res.redirect('/doctors/'+prdid);
 })
 
-router.delete('/products/:prdid/reviews/:rvid',isLoggedIn,async(req,res)=>{
+router.delete('/doctors/:prdid/reviews/:rvid',isLoggedIn,async(req,res)=>{
     const {prdid,rvid}=req.params;
     await reviews.findByIdAndDelete(rvid);
     const product=await products.findById(prdid);
     product.reviews=product.reviews.filter((id)=>id!=rvid);
     await product.save();
-    res.redirect('/products/'+prdid);
+    res.redirect('/doctors/'+prdid);
 })
 
 module.exports=router;

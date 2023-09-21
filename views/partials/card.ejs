@@ -7,11 +7,13 @@
           <h5 class="card-title">Dr. <%=product.name%></h5>
           <h6 class="card-text"><%=product.price%></h6>
           <p class="card-text">Experience: <%=product.desc%></p>
-          <a href="/products/<%=product.id%>" class="btn btn-primary my-2">Doctor's details</a>
-        <form action="/products/cart/<%=product.id%>/add" method="post" class="d-inline"><button class="btn btn-primary">Book now</button></form>
+          <a href="/doctors/<%=product.id%>" class="btn btn-primary my-2">Doctor's details</a>
+          <% if(user && user.profile!='retailer'){%>
+        <form action="/doctors/saved/<%=product.id%>/add" method="post" class="d-inline"><button class="btn btn-primary">Save for Later</button></form>
+<%}%>
           <% if(user && (product.creator == user.id||user.isAdmin)) { %>
-            <a href="/products/<%=product.id%>/edit" class="btn btn-primary my-3">Update</a>
-          <form action="/products/<%=product.id%>?_method=delete" method="post" class="d-inline">
+            <a href="/doctors/<%=product.id%>/edit" class="btn btn-primary my-3">Update</a>
+          <form action="/doctors/<%=product.id%>?_method=delete" method="post" class="d-inline">
             <button class="btn btn-danger">Delete</button>
           </form>
             <%}%>

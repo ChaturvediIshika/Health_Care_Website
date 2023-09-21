@@ -77,8 +77,7 @@ app.listen(port,()=>{
 });
 
 app.get('/',(req,res)=>{
-    res.redirect('/products');
-    // res.send("connected");
+    res.render('./partials/main');
 })
 app.use(reviewRouter);
 app.use(productRoutes);

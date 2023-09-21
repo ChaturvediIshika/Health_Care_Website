@@ -28,7 +28,7 @@ router.get('/login',(req,res)=>{
 
 router.post('/login', passport.authenticate('local', { failureRedirect: '/login',failureFlash: true }),(req, res) =>{
     req.flash('message','login successful');
-    res.redirect('/products');
+    res.redirect('/');
 })
 
 
@@ -37,7 +37,7 @@ router.get('/logout',(req,res)=>{
         if(e){
             res.flash('error',e.message);
         }
-        res.redirect('/products');
+        res.redirect('/');
     });
 })
 module.exports=router;

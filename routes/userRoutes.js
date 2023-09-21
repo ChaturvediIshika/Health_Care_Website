@@ -7,27 +7,17 @@ const Offers=require('../models/offers');
 
 
 
-router.post('/products/cart/:pid/add',isLoggedIn,async(req,res)=>{
+router.post('/doctors/saved/:pid/add',isLoggedIn,async(req,res)=>{
     const uid=req.user.id;
     const {pid}=req.params;
     const user=await User.findById(uid);
-    let i;
-    for(i=0;i<user.cart.length;i++){
-        if(user.cart[i]==pid){
-            user.qty[i]++;
-            break; 
-        }
-    }
-    if(i==user.cart.length){
-        user.cart.push(pid);
-        user.qty.push(1);
-    }
+    if(!user.cart.includes(pid))user.cart.push(pid);
     await user.save();
-    req.flash('message','product successfully added to cart');
-    res.redirect('/products');
+    req.flash('message','Doctor successfully saved');
+    res.redirect('/doctors');
 })
 
-router.get('/cart',isLoggedIn,async(req,res)=>{
+router.get('/saved',isLoggedIn,async(req,res)=>{
     const user=req.user;
     await user.populate('cart');
     const products=user.cart;
@@ -35,25 +25,17 @@ router.get('/cart',isLoggedIn,async(req,res)=>{
     res.render('user/cart',{products,offers});
 })  
 
-router.delete('/products/cart/:pid',isLoggedIn,async(req,res)=>{
+router.delete('/doctors/saved/:pid',isLoggedIn,async(req,res)=>{
     const uid=req.user.id;
     const {pid}=req.params;
     const user=await User.findById(uid);
-    for(let i=0;i<user.cart.length;i++){
-        if(user.cart[i]==pid){
-            user.qty[i]--;
-        }
-        if(user.qty[i]==0){
-            user.qty.splice(i,1);
-            user.cart.splice(i,1);
-        }
-    }
+    user.cart=user.cart.filter((id)=>id!=pid);
     await user.save();
-    req.flash('error','product removed from cart');
-    res.redirect('/cart');
+    req.flash('error','Doctor removed from saved');
+    res.redirect('/saved');
 })
 
-router.get('/myproducts',isLoggedIn,async(req,res)=>{
+router.get('/mydoctors',isLoggedIn,async(req,res)=>{
     const products=await Product.find({creator:req.user.id});
     res.render('user/myproducts',{products});
 });
