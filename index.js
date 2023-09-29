@@ -25,7 +25,8 @@ const MongoDBStore = require('express-mongodb-session')(session);
 
 const dburl2=process.env.dbURL||'mongodb://127.0.0.1:27017/shopping-app';
 const dburl='mongodb://127.0.0.1:27017/shopping-app';
-
+const url="https://anikateagrawal.github.io/health_check/";
+const url2="";
  
 passport.use(new LocalStrategy(User.authenticate()));
 
@@ -62,6 +63,7 @@ app.use(passport.session());
 
 app.use((req,res,next)=>{
     res.locals.user=req.user;
+    res.locals.url=url;
     res.locals.message=req.flash('message');
     res.locals.error=req.flash('error');
     next();
