@@ -9,7 +9,6 @@ const mongoose=require('mongoose');
 const productRoutes=require('./routes/productRoutes');
 const methodOverride=require('method-override');
 const session=require('express-session');
-const cookieParser=require('cookie-parser');
 const flash=require('connect-flash');
 const app=express();
 const seed=require('./seed');
@@ -20,7 +19,7 @@ var LocalStrategy = require('passport-local');
 const User=require('./models/user')
 const userRoutes=require('./routes/userRoutes');
 const adminRoutes=require('./routes/adminRoutes');
-const orderRoutes=require('./routes/orderRoutes');
+const bookingRoutes=require('./routes/bookingRoutes');
 const profileRoutes=require('./routes/profileRoutes');
 const MongoDBStore = require('express-mongodb-session')(session);
 
@@ -84,7 +83,7 @@ app.use(productRoutes);
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(adminRoutes);
-app.use(orderRoutes);
+app.use(bookingRoutes);
 app.use(profileRoutes);
 mongoose.set('strictQuery',true);
 
