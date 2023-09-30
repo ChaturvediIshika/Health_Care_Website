@@ -48,4 +48,12 @@ router.delete('/doctors/:prdid',isLoggedIn,async(req,res)=>{
     console.log('Doctor deleted');
     res.redirect('/doctors');
 }) 
+
+
+router.get('/doctors/type/:t',isLoggedIn,async(req,res)=>
+{
+    const {t}=req.params;
+    const products=await product.find({price:t});
+    res.render('./products/product',{products});
+})
 module.exports=router;
