@@ -14,7 +14,7 @@ router.get('/doctors/new',isLoggedIn,(req,res)=>{
 router.post('/doctors/new',isLoggedIn,async(req,res)=>{
     const {name,img,price,desc}=req.body; 
     await product.create({name,img,price,desc,creator:req.user.id});
-    console.log("product added");
+    console.log("doctor added");
     req.flash('message','Doctor added successfully');
     res.redirect('/doctors');
 })
@@ -41,7 +41,7 @@ router.patch('/doctors/:prdid',isLoggedIn,async(req,res)=>{
     req.flash('message','updated successfully');
     res.redirect('/doctors/'+prdid);
 })
-
+  
 router.delete('/doctors/:prdid',isLoggedIn,async(req,res)=>{
     const {prdid}=req.params;
     await product.findByIdAndDelete(prdid);

@@ -12,7 +12,8 @@ const schema=new mongoose.Schema({
     }],
     creator:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'User'
+        ref:'User',
+        required:true
     }
 });
 
