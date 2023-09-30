@@ -3,7 +3,11 @@ const mongoose=require('mongoose');
 
 const schema=new mongoose.Schema({
     name:String,
-    img:String,
+    img:{
+        type:String,
+        trim:true,
+        default:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDNDRbmyobKO3TL_AFnPNaGZGrJYII6aDzzw&usqp=CAU'
+    },
     price:String,
     desc:String,
     reviews:[{
