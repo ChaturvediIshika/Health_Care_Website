@@ -2,22 +2,30 @@ const mongoose=require('mongoose');
 
 
 const schema=new mongoose.Schema({
-    product:{
+    doctor:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'products',
         required:true
     },
-    buyer:{
+    hospital:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
         required:true
     },
-    seller:{
+    patient:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
+        required:true
+    },
+    date:{
+        type:"String",
+        required:true
+    },
+    time_slot:{
+        type:'String',
         required:true
     }
 })
 
-const orders=mongoose.model('order',schema);
-module.exports=orders;
+const bookings=mongoose.model('booking',schema);
+module.exports=bookings;

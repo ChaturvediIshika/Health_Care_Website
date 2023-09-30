@@ -23,8 +23,8 @@ const bookingRoutes=require('./routes/bookingRoutes');
 const profileRoutes=require('./routes/profileRoutes');
 const MongoDBStore = require('express-mongodb-session')(session);
 
-const dburl2=process.env.dbURL||'mongodb://127.0.0.1:27017/shopping-app';
-const dburl='mongodb://127.0.0.1:27017/shopping-app';
+const dburl2=process.env.dbURL||'mongodb://127.0.0.1:27017/health-care';
+const dburl='mongodb://127.0.0.1:27017/health-care';
 const url="https://anikateagrawal.github.io/health_check/";
 const url2="";
  

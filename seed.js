@@ -53,10 +53,14 @@ const products = [
 
 async function seedDB(){
     await Product.deleteMany();
-    await Product.insertMany(products);
+    
     await User.deleteMany({});
     const admin=new User({username:'admin',email:'admin@gmail.com',contact:999999999,isAdmin:true});
     await User.register(admin,'12345');
+    for(let product of products){
+        product.creator=admin.id;
+    }
+    await Product.insertMany(products);
     console.log("DB seeded");
 }
 

@@ -10,8 +10,9 @@
         <h3 class="card-text"><%=products.price%></h3>
         <p class="card-text">Experience: <%=products.desc%></p>
         <a href="/doctors" class="btn btn-secondary">All Doctors</a>
-        <form action="/doctors/saved/<%=products.id%>/add" method="post" class="d-inline"><button class="btn btn-primary">Book now</button></form>
-        <% if(user && products.creator &&(products.creator.id == user.id||user.isAdmin)) { %>
+        <a href="/book/<%=products.id%>" class="btn btn-success my-2">Book Now</a>
+        <form action="/doctors/saved/<%=products.id%>/add" method="post" class="d-inline"><button class="btn btn-primary">Save for later</button></form>
+        <% if(user && (products.creator &&products.creator.id == user.id||user.isAdmin)) { %>
           <a href="/doctors/<%=products.id%>/edit" class="btn btn-primary my-3">Update</a>
         <form action="/doctors/<%=products.id%>?_method=delete" method="post" class="d-inline">
           <button class="btn btn-danger">Delete</button>
