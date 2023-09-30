@@ -1,6 +1,8 @@
 <%- layout('./layout/boilerplate') %>
-<form action="/doctors/new" method="post">
-    <h1>Add Doctor</h1>
+<div class="f1">
+<form action="/doctors/new" method="post" class="row f2">
+    <h1 class="pb-3">Add A Doctor</h1>
+    <div class="col-lg-6">
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
       <input type="text" class="form-control" id="name" name="name" required>
@@ -29,10 +31,13 @@
         <option value="Oncologists">Oncologists</option>
       </select>
     </div>
+  </div>
+    <div class="col-lg-6">
     <div class="mb-3">
       <label for="desc" class="form-label">Experience</label><br>
-      <textarea name="desc" id="desc" class="form-control" rows="5"></textarea>
+      <textarea name="desc" id="desc" class="form-control" rows="8"></textarea>
     </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+    <button type="submit" class="btn">Submit</button>
   </form>
+</div>
