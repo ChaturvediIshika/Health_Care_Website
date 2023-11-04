@@ -50,7 +50,7 @@ router.delete('/doctors/:prdid',isLoggedIn,async(req,res)=>{
 }) 
 
 
-router.get('/doctors/type/:t',isLoggedIn,async(req,res)=>
+router.get('/doctors/type/:t',async(req,res)=>
 {
     const {t}=req.params;
     const products=await product.find({price:t});
