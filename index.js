@@ -1,17 +1,17 @@
 if(process.env.NODE_ENV!="production"){
     require('dotenv').config();
-}
+} 
 const express=require('express');
 const path=require('path');
 const engine=require('ejs-mate');
-const port=process.env.port||4000;
+const port=process.env.port||4001;
 const mongoose=require('mongoose');
 const productRoutes=require('./routes/productRoutes');
 const methodOverride=require('method-override');
 const session=require('express-session');
 const flash=require('connect-flash');
 const app=express();
-const seed=require('./seed');
+const seed=require('./seed'); 
 const reviewRouter=require('./routes/reviewsRoutes');
 const authRoutes=require('./routes/authRoutes');
 var passport = require('passport');
@@ -23,8 +23,8 @@ const bookingRoutes=require('./routes/bookingRoutes');
 const profileRoutes=require('./routes/profileRoutes');
 const MongoDBStore = require('express-mongodb-session')(session);
 
-const dburl2=process.env.dbURL||'mongodb://127.0.0.1:27017/health-care';
-const dburl='mongodb://127.0.0.1:27017/health-care';
+const dburl=process.env.dbURL||'mongodb://127.0.0.1:27017/health-care';
+const dburl2='mongodb://127.0.0.1:27017/health-care';
 const url="https://anikateagrawal.github.io/health_check/";
 const url2="";
  
