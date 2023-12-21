@@ -105,3 +105,58 @@
     border-radius: 25px;
     font-weight: bold;
 }
+
+.serviceCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display:grid;
+    grid-gap:25px;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+}
+
+.serviceCard div{
+    text-align: center;
+    /* align-items: center; */
+    border:3px solid #17594A;
+    border-radius:10px;
+    box-shadow:rgb(0 0 0 / 69%) 0px 26px 30px -10px,rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    overflow:hidden;
+    line-height: 1.5;
+    height: 100%;
+}
+
+.service{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    font-weight: bold;
+}
+
+.service h1{
+    color: #17594A;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.serviceCard h3{
+    background-color: #bcf2e5;
+    color: #17594A;
+    padding: 20px;
+}
+
+.serviceCard p{
+    padding: 20px;
+}
+
+.serviceCard button{
+    background-color: #0c3b30;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    border-radius: 20px;
+    box-shadow:rgb(0 0 0 / 69%) 0px 26px 30px -10px,rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    font-size: large;
+    
+}
